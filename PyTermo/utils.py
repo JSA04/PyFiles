@@ -1,0 +1,4 @@
+from Termo_Utils.trata_input import pede_e_confere_tentativa
+from Termo_Utils.escolhe_palavra import escolhe
+from Termo_Utils.confere_tentativa import Conferidor
+from Base_de_Dados.database import database
