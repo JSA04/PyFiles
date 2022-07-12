@@ -1,0 +1,6 @@
+{% extends "template.html" %}
+{% block content %}
+    <h2>Tem certeza que deseja excluir a conta?</h2>
+    <a class="btn btn-danger" href="{{ url_for('deletar_usuario') }}">Sim</a>
+    <a class="btn btn-primary" href="{{ url_for('configuracoes') }}">Não</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/PEP8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PyBrasil" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PyDjango" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PyFiles" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PyFlask" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PyIO" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PySQL" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PySTR" vcs="Git" />
+  </component>
+</project>

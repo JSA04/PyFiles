@@ -1,0 +1,11 @@
+{% extends "template.html" %}
+{% block content %}
+
+<h3>Nome</h3>
+<p>{{ jogo.nome }}</p>
+<h3>Categoria</h3>
+<p>{{ jogo.categoria }}</p>
+<h3>Console</h3>
+<p>{{ jogo.console }}</p>
+<a class="btn btn-primary" href="{{ url_for('index') }}">Voltar</a>
+{% endblock %}
