@@ -11,6 +11,7 @@ class Conferidor:
     def esta_correto(self) -> bool:
         return self.palavra == self.tentativa
 
+    @property
     def retorna_obj_Tentativa(self) -> Tentativa:
         igualdade = Igualdade(self.tentativa, self.palavra)
 

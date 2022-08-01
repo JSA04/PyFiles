@@ -1,5 +1,5 @@
-from Termo import Termo
+from Termo_Utils.Termo import Termo
 
-jogo = Termo("Mysql")
+jogo = Termo()
 
 jogo.start()

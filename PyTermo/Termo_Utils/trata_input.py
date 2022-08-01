@@ -1,5 +1,5 @@
 from Termo_Utils.confere_palavra import confere
-from Termo import Termo
+from Termo_Utils.Termo import Termo
 
 
 def pede_e_confere_tentativa(jogo : Termo) -> str:

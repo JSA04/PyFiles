@@ -1,18 +1,18 @@
-import mysql.connector as mysql_base
-
-
 class Mysql_Base:
-
 
     def __init__(self, host="localhost",
                  user="root",
                  password="senha_mysql_juan"):
 
+        import mysql.connector as mysql_base
+
         try:
+
+            print("Carregando Base De Palavras...")
+
             self.db = mysql_base.connect(user=user,
                                     password=password,
                                     host=host)
-            self.cursor = self.db.cursor()
             self.qtd_palavras = 0
 
         except Exception as err:
@@ -20,7 +20,6 @@ class Mysql_Base:
                   f"ID do ERRO:{err}\033[m")
 
         else:
-            self.cursor.close()
             self.db.close()
 
 
@@ -39,14 +38,16 @@ class Mysql_Base:
 
         self.fecha_db()
 
-    def adiciona_palavras(self, lista_de_palavras) -> None:
+    def adiciona_palavras(self) -> None:
+
+        from Base_de_Dados.dados.palavras_dao import retorna_palavras
+
         self.conecta_db()
 
         cursor = self.db.cursor()
-
         cursor.execute("use termo")
-        for p in lista_de_palavras:
 
+        for p in retorna_palavras():
             self.qtd_palavras += 1
             if p:
                 cursor.execute("INSERT INTO palavras (palavra) value (%s)", p)
@@ -73,11 +74,18 @@ class Mysql_Base:
         cursor.execute("use termo")
         cursor.execute("SELECT palavra from palavras where palavra = %s", (palavra_a_conferir,))
 
-        for palavra in cursor:
-            return True
-        return False
 
-    def qtd_linhas(self):
+        existe = False
+
+        for palavra in cursor:
+            existe = True
+
+        self.fecha_db()
+        return existe
+
+
+
+    def qtd_linhas(self) -> int:
         self.conecta_db()
 
         cursor = self.db.cursor()
@@ -93,17 +101,6 @@ class Mysql_Base:
         self.db.reconnect()
 
     def fecha_db(self) -> None:
-        self.cursor.close()
         self.db.commit()
         self.db.close()
 
-
-def database_mysql_termo():
-    # from Palavras.palavras_dao import palavras
-
-    database = Mysql_Base()
-
-    # database.adiciona_palavras(palavras)
-    # Descomentar para adicionar palavras ao banco de dados.
-
-    return database
