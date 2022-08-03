@@ -1,5 +1,5 @@
-from Termo_Utils.trata_input import pede_e_confere_tentativa
 from Termo_Utils.escolhe_palavra import escolhe_palavra
-from Termo_Utils.confere_tentativa import Conferidor
+from Termo_Utils.confere_tentativa import Conferidor_de_Tentativa
 from Base_de_Dados.database import retorna_base_de_dados
-from Base_de_Dados.dados.streak import atualiza_e_retorna_streak, retorna_streak
+from Base_de_Dados.dados.streak import acresenta_streak, reseta_streak, retorna_streak
+from .trata_input import trata_input

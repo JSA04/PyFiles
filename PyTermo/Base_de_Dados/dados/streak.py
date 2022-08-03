@@ -1,23 +1,22 @@
-arq_local = r"C:\Users\f72823\Documentos\PyFiles\PyTermo\Base_de_Dados\dados\stk"
+from ._json_utils import retorna_json, escreve_json
 
 
-def atualiza_e_retorna_streak():
-    stk = None
-    with open(arq_local, "r") as arq:
-        stk = int(arq.readline()) + 1
-        with open(arq_local, "w") as arq2:
-            arq2.write(str(stk))
+def acresenta_streak() -> None:
 
-        arq.close()
-    return stk
+    dados: dict = retorna_json()
+    dados["Streak"] += 1
+    escreve_json(dados)
 
 
-def retorna_streak():
-    with open(arq_local, "r") as arq:
-        stk = int(arq.readline())
-        arq.close()
+def reseta_streak() -> None:
 
-    return stk
+    dados: dict = retorna_json()
+    dados["Streak"]: int = 0
+    escreve_json(dados)
 
 
-a = retorna_streak()
+def retorna_streak() -> str:
+
+    dados: dict = retorna_json()
+    streak = dados["Streak"]
+    return streak

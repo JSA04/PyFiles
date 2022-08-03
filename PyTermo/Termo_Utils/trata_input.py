@@ -1,15 +1,14 @@
-from Termo_Utils.confere_palavra import confere
-from Termo_Utils.Termo import Termo
+from .confere_palavra import confere
+from .Termo import Termo
 
 
-def pede_e_confere_tentativa(jogo : Termo) -> str:
+def trata_input(cls: Termo) -> str:
     while True:
-        palavra = str(input(f"{jogo.rodada + 1} - Tentativa: "))
-        palavra = palavra.upper().replace(" ", "")
+        palavra = str(input(f"{cls.rodada + 1} - Tentativa: ")).upper().replace(" ", "")
 
-        jogo.tentativa_atual = palavra
+        cls.tentativa_atual = palavra
 
-        if confere(jogo):
+        if confere(cls):
             break
 
     return palavra

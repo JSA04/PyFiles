@@ -1,2 +1,1 @@
-CAMINHO_ARQUIVO_PALAVRAS = ".\palavras.txt"
-CARACTERES_INVALIDOS = "-_áãâà.éèêóòôõìíìúîùç "
+CARACTERES_INVALIDOS: str = "-_áãâà.éèêóòôõìíìúîùç "

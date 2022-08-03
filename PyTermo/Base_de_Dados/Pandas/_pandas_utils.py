@@ -3,13 +3,12 @@ class Pandas_Base:
     import pandas as pd
 
     def __init__(self):
-
         self.tabela_palavras = self.pd.DataFrame()
         self.lastid = 0
 
     def adiciona_palavras(self) -> None:
 
-        from .dados.palavras_dao import retorna_palavras
+        from Base_de_Dados.dados.palavras_dao import retorna_palavras
 
         palavras = retorna_palavras()
 
@@ -27,9 +26,10 @@ class Pandas_Base:
         self.tabela_palavras.set_index("id", inplace=True)
 
     def retorna_palavra_por_id(self, id) -> str:
-        palavra : list = self.tabela_palavras.loc[
+        palavra : str = self.tabela_palavras.loc[
             id, "palavra"
         ]
+
         return palavra
 
     def verifica_palavra_no_db(self, palavra_a_conferir) -> bool:
