@@ -3,3 +3,4 @@ from Termo_Utils.confere_tentativa import Conferidor_de_Tentativa
 from Base_de_Dados.database import retorna_base_de_dados
 from Base_de_Dados.dados.streak import acresenta_streak, reseta_streak, retorna_streak
 from .trata_input import trata_input
+from .config_db import mostra_pede_para_mudar_DB

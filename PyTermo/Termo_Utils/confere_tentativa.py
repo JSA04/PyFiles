@@ -1,4 +1,4 @@
-from Termo_Utils.tentativa import Tentativa
+from Termo_Utils.Tentativa import Tentativa
 from Termo_Utils.confere_igualdade import Igualador
 from .Termo import Termo
 

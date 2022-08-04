@@ -4,11 +4,8 @@ class Termo:
 
         self._limpa_terminal()
 
-        # Guarda dados do jogo para ser acessado por outro módulo.
-        self.tentativas = []
-        self.rodada = 0
-        self.tentativa_atual = ""
-        self.palavra_certa_atual = ""
+        # A função reseta dados, inicialmente cria alguns dados do jogo atual.
+        self._reseta_dados()
 
         # Guarda objeto da Base de Dados para efetuar para outros módulos executar querys e afins.
         self.base_de_dados = retorna_base_de_dados()
@@ -16,7 +13,7 @@ class Termo:
         self._limpa_terminal()
 
     def roda(self):
-
+        from Base_de_Dados.dados.json_utils import retorna_json
         print("Seja bem vindo ao Termo!\n")
 
         while True:
@@ -31,8 +28,13 @@ class Termo:
             if acao == "LEAVE":
                 self._limpa_terminal()
                 break
+            elif acao == "SEM_DB":
+                self._limpa_terminal()
+                print("\033[31mÉ Preciso Uma Base Base De Dados Para Continuar.\033[m")
 
-            self._limpa_terminal()
+        base = retorna_json()["Base"]
+        if base == "MySQL":
+            self.base_de_dados.db.close()
 
     def _play(self):
 
@@ -44,19 +46,18 @@ class Termo:
         self._limpa_terminal()
 
         if self.tentativas:
-            self.reseta_dados()
+            self._reseta_dados()
 
-        print(self.palavra_certa_atual)
         for round in range(0, 6):
 
-            self.rodada = round
+            self.rodada : int = round
 
             trata_input(self)
             conferidor = Conferidor_de_Tentativa(self)
             conferidor.add_tentativa_a_lista(self)
 
-            for obj in self.tentativas:
-                obj.imprime_tentativa()
+            for tentativa in self.tentativas:
+                print(tentativa)
 
             if conferidor.esta_correto:
                 acresenta_streak()
@@ -68,30 +69,30 @@ class Termo:
                 print("\033[31mGAME OVER!\033[m")
                 reseta_streak()
 
-        self.reseta_dados()
+        self._reseta_dados()
         self._pausa()
         self._limpa_terminal()
 
     def _streak(self):
         from .utils import retorna_streak
 
-        stk = retorna_streak()
+        streak = retorna_streak()
 
-        print(f"Seu Streak É De {stk}")
+        self._limpa_terminal()
+
+        print(f"Seu Streak É De {streak}")
 
         self._pausa()
         self._limpa_terminal()
 
-    def _configuracao_base(self):
+    def muda_configuracao_DB(self):
+        from .utils import mostra_pede_para_mudar_DB
 
         self._limpa_terminal()
 
-        tipo = str(type(self.base_de_dados))
-        base = "Pandas" if "Pandas" in tipo else "MySQL"
-        print(f"Base_de_Dados_Atual: {base}\n")
+        mostra_pede_para_mudar_DB(self)
 
-        self._pede_e_muda_db()
-
+        self.base_de_dados
         self._limpa_terminal()
 
     def _leave(self):
@@ -113,28 +114,7 @@ class Termo:
 
         system("pause")
 
-    def _pede_e_muda_db(self):
-        from Base_de_Dados.database import database_mysql_termo, database_pandas_termo
-        from Base_de_Dados.dados._json_utils import Leitor_JSON
-
-        resp = ""
-
-        while resp not in ["SIM", "S", "NAO", "N"]:
-            resp = input("Deseja Mudar A Base De Dados? ").upper()
-
-            json = Leitor_JSON.retorna_json()
-
-            if resp in ["SIM", "S"]:
-                if json["Base"] == "MySQL":
-                    json["Base"] = "Pandas"
-                    self.base_de_dados = database_pandas_termo()
-                else:
-                    json["Base"] = "MySQL"
-                    self.base_de_dados = database_mysql_termo()
-            elif resp not in ["NAO", "N"]:
-                print("\033[31mDigite SIM ou NAO:\033[m")
-
-    def reseta_dados(self):
+    def _reseta_dados(self):
         self.tentativas = []
         self.rodada = 0
         self.tentativa_atual = ""

@@ -11,6 +11,7 @@
     <option name="namespacePackageFolders">
       <list>
         <option value="$MODULE_DIR$/Termo_Utils" />
+        <option value="$MODULE_DIR$/Base_de_Dados" />
       </list>
     </option>
   </component>

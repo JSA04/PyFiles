@@ -3,6 +3,7 @@ from Termo_Utils.Termo import Termo
 
 def confere(cls : Termo) -> bool:
     if cls.tentativa_atual == "PTCPA":
+        print(cls.palavra_certa_atual)
         return True
 
     if not cls.tentativa_atual:
@@ -17,4 +18,9 @@ def confere(cls : Termo) -> bool:
         print("\033[31mA palavra que você digitou não está na nossa base de dados\033[m")
         return False
 
-    return True
+    else:
+        for tentativa in cls.tentativas:
+            if str(tentativa).upper() == cls.tentativa_atual.upper():
+                print("\033[31mVocê já tentou essa palavra.\033[m")
+                return False
+        return True
