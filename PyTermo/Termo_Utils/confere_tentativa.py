@@ -1,6 +1,6 @@
 from Termo_Utils.Tentativa import Tentativa
 from Termo_Utils.confere_igualdade import Igualador
-from .Termo import Termo
+from Termo_Utils.Termo import Termo
 
 
 class Conferidor_de_Tentativa:

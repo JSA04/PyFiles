@@ -38,7 +38,7 @@ class Termo:
 
     def _play(self):
 
-        from .utils import (Conferidor_de_Tentativa, trata_input, escolhe_palavra,
+        from Termo_Utils.utils import (Conferidor_de_Tentativa, trata_input, escolhe_palavra,
                             acresenta_streak, retorna_streak, reseta_streak)
 
         self.palavra_certa_atual = escolhe_palavra(self)
@@ -74,7 +74,7 @@ class Termo:
         self._limpa_terminal()
 
     def _streak(self):
-        from .utils import retorna_streak
+        from Termo_Utils.utils import retorna_streak
 
         streak = retorna_streak()
 
@@ -86,7 +86,7 @@ class Termo:
         self._limpa_terminal()
 
     def muda_configuracao_DB(self):
-        from .utils import mostra_pede_para_mudar_DB
+        from Termo_Utils.utils import mostra_pede_para_mudar_DB
 
         self._limpa_terminal()
 

@@ -1,5 +1,5 @@
-from .confere_palavra import confere
-from .Termo import Termo
+from Termo_Utils.confere_palavra import confere
+from Termo_Utils.Termo import Termo
 
 
 def trata_input(cls: Termo) -> str:

@@ -1,4 +1,4 @@
-from .Termo import Termo
+from Termo_Utils.Termo import Termo
 
 
 class Igualador:
