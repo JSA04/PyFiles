@@ -13,7 +13,7 @@ class Termo:
         self._limpa_terminal()
 
     def roda(self):
-        from Base_de_Dados.dados.json_utils import retorna_json
+        from Base_de_Dados.json_utils import retorna_json
         print("Seja bem vindo ao Termo!\n")
 
         while True:

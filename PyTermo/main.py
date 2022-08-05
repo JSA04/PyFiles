@@ -8,7 +8,7 @@ try:
     termo.roda()
 
 except KeyboardInterrupt:
-    from Base_de_Dados.dados.json_utils import retorna_json
+    from Base_de_Dados.json_utils import retorna_json
     
     dados = retorna_json()
     

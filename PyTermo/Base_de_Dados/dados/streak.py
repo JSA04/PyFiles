@@ -1,4 +1,4 @@
-from Base_de_Dados.dados.json_utils import retorna_json, escreve_json
+from Base_de_Dados.json_utils import retorna_json, escreve_json
 
 
 def acresenta_streak() -> None:

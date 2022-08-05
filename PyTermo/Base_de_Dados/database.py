@@ -1,7 +1,7 @@
 from Base_de_Dados.MySQL.base_mysql import database_mysql_termo
 from Base_de_Dados.Pandas.base_pandas import database_pandas_termo
 from typing import Union
-from Base_de_Dados.dados.json_utils import retorna_json, escreve_json
+from Base_de_Dados.json_utils import retorna_json, escreve_json
 from os import system
 
 

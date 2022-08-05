@@ -2,7 +2,7 @@ from .Termo import Termo
 
 
 def mostra_pede_para_mudar_DB(cls : Termo):
-    from Base_de_Dados.dados.json_utils import retorna_json
+    from Base_de_Dados.json_utils import retorna_json
 
     jsonDB = retorna_json()
 
@@ -23,7 +23,7 @@ def mostra_pede_para_mudar_DB(cls : Termo):
 
 def _pede_para_mudar_db(cls : Termo):
     from Base_de_Dados.database import database_mysql_termo, database_pandas_termo
-    from Base_de_Dados.dados.json_utils import retorna_json, escreve_json
+    from Base_de_Dados.json_utils import retorna_json, escreve_json
     from os import system
     global opcoes
 

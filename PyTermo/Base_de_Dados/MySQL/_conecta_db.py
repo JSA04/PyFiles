@@ -6,7 +6,7 @@ from mysql import connector as conector
 def retorna_base():
     global base
 
-    from Base_de_Dados.dados.json_utils import retorna_json
+    from Base_de_Dados.json_utils import retorna_json
 
     dados = retorna_json()
 
@@ -24,7 +24,7 @@ def retorna_base():
 
 
 def _atualiza_base():
-    from Base_de_Dados.dados.json_utils import retorna_json, escreve_json
+    from Base_de_Dados.json_utils import retorna_json, escreve_json
 
     while True:
         dados: dict = retorna_json()
