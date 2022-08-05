@@ -1,19 +1,28 @@
+from typing import Union
+
+
 class Termo:
     def __init__(self):
         from .utils import retorna_base_de_dados
+        from Base_de_Dados.database import database_mysql_termo, \
+                                           database_pandas_termo
 
         self._limpa_terminal()
 
         # A função reseta dados, inicialmente cria alguns dados do jogo atual.
         self._reseta_dados()
 
-        # Guarda objeto da Base de Dados para efetuar para outros módulos executar querys e afins.
-        self.base_de_dados = retorna_base_de_dados()
+        #  Guarda objeto da Base de Dados para efetuar para outros módulos 
+        # executar querys e afins.
+        self.base_de_dados: Union[database_mysql_termo,
+                            database_pandas_termo] = retorna_base_de_dados()
+
+        self.sair = False
 
         self._limpa_terminal()
 
-    def roda(self):
-        from Base_de_Dados.json_utils import retorna_json
+    def roda(self) -> None:
+        from .utils import retorna_json, atualiza_json
         print("Seja bem vindo ao Termo!\n")
 
         while True:
@@ -25,12 +34,10 @@ class Termo:
 
             acao = executa_acao(self)
 
-            if acao == "LEAVE":
-                self._limpa_terminal()
+            if self.sair:
                 break
-            elif acao == "SEM_DB":
-                self._limpa_terminal()
-                print("\033[31mÉ Preciso Uma Base Base De Dados Para Continuar.\033[m")
+
+        self._limpa_terminal()
 
         base = retorna_json()["Base"]
         if base == "MySQL":
@@ -39,7 +46,7 @@ class Termo:
     def _play(self):
 
         from Termo_Utils.utils import (Conferidor_de_Tentativa, trata_input, escolhe_palavra,
-                            acresenta_streak, retorna_streak, reseta_streak)
+                            acresenta_streak, retorna_streak, acresenta_partida)
 
         self.palavra_certa_atual = escolhe_palavra(self)
 
@@ -57,36 +64,41 @@ class Termo:
             conferidor.add_tentativa_a_lista(self)
 
             for tentativa in self.tentativas:
-                print(tentativa)
+                print(tentativa.imprime_tentativa())
 
             if conferidor.esta_correto:
-                acresenta_streak()
+                acresenta_partida("G")
                 print("\033[32mParabens! Você Venceu!")
                 print(f"Seu Streak É De {retorna_streak()}.\033[m")
                 break
 
             elif not conferidor and self.rodada == 6:
+                acresenta_partida()
                 print("\033[31mGAME OVER!\033[m")
-                reseta_streak()
+
 
         self._reseta_dados()
         self._pausa()
         self._limpa_terminal()
 
-    def _streak(self):
-        from Termo_Utils.utils import retorna_streak
+    def _status(self) -> None:
+        from .utils import retorna_json
 
-        streak = retorna_streak()
+        dados = retorna_streak()
 
         self._limpa_terminal()
 
-        print(f"Seu Streak É De {streak}")
+        print("Seu Status\n")
+        print(f"Ganhas: {dados['Partidas_Ganhas']}")
+        print(f"Perdidas: {dados['Partidas_Perdidas']}")
+        print(f"Total: {dados['Total_Partidas']}")
+        print(f"Streak: {dados['Streak']}")
 
         self._pausa()
         self._limpa_terminal()
 
-    def muda_configuracao_DB(self):
-        from Termo_Utils.utils import mostra_pede_para_mudar_DB
+    def muda_configuracao_DB(self) -> None:
+        from .utils import mostra_pede_para_mudar_DB
 
         self._limpa_terminal()
 
@@ -95,24 +107,26 @@ class Termo:
         self.base_de_dados
         self._limpa_terminal()
 
-    def _leave(self):
+    def _leave(self) -> None:
         self._limpa_terminal()
 
         print("Até Mais!")
 
+        self.sair = True
+
         self._pausa()
 
     @staticmethod
-    def _limpa_terminal():
-        from os import system
-
-        system("cls")
-
-    @staticmethod
-    def _pausa():
+    def _pausa() -> None:
         from os import system
 
         system("pause")
+
+    @staticmethod
+    def _limpa_terminal() -> None:
+        from os import system
+
+        system("cls")
 
     def _reseta_dados(self):
         self.tentativas = []

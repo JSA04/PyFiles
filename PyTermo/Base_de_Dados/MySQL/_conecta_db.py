@@ -1,5 +1,3 @@
-from os import system
-
 from mysql import connector as conector
 
 

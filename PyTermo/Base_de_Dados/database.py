@@ -35,12 +35,10 @@ def _pede_base(dados) -> (Union[database_mysql_termo,
         system("cls")
 
         if tipo.upper() in ["1", "MS", "MYSQL", "SQL", "M"]:
-            dados["Base"] = "MySQL"
             escreve_json(dados)
             return database_mysql_termo()
 
         elif tipo.upper() in ["2", "PANDAS", "PD", "P"]:
-            dados["Base"] = "Pandas"
             escreve_json(dados)
             return database_pandas_termo()
 

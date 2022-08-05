@@ -3,8 +3,15 @@ class Pandas_Base:
     import pandas as pd
 
     def __init__(self):
+        from Base_de_Dados.json_utils import retorna_json, escreve_json
+
+        jsonDB = retorna_json()
+
         self.tabela_palavras = self.pd.DataFrame()
         self.lastid = 0
+
+        jsonDB["Base"] = "Pandas"
+        escreve_json(jsonDB)
 
     def adiciona_palavras(self) -> None:
 

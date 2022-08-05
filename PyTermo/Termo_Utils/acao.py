@@ -6,7 +6,7 @@ from Termo_Utils.Termo import Termo
 def executa_acao(cls : Termo) -> Union[str, None]:
 
     print("1 - Começar")
-    print("2 - Ver Streak")
+    print("2 - Ver Meus Status")
     print("3 - Configurações Da Base De Dados")
     print("4 - Sair\n")
 
@@ -17,22 +17,18 @@ def executa_acao(cls : Termo) -> Union[str, None]:
         if acao == "1":
 
             if cls.base_de_dados is not None:
-                cls._play()
-                return None
+                return cls._play()
             else:
-                return "SEM_DB"
+                print("\033[mÉ Preciso Uma Base De Dados Para Continuar.\033[m")
 
         elif acao == "2":
-            cls._streak()
-            return None
+            return cls._status()
 
         elif acao == "3":
-            cls.muda_configuracao_DB()
-            return None
+            return cls.muda_configuracao_DB()
 
         elif acao == "4":
-            cls._leave()
-            return "LEAVE"
+            return cls._leave()
 
         if acao.isnumeric():
             print("\033[31mDigite um desses números!\033[m")

@@ -1,11 +1,9 @@
-from .constantes import CARACTERES_INVALIDOS
-
-
 def verifica(palavra: str) -> str:
 
     palavra = palavra.upper()
+    caracteres_invalidos = "-_áãâà.éèêóòôõìíìúîùç "
 
-    for caracter in CARACTERES_INVALIDOS:
+    for caracter in caracteres_invalidos:
 
         if (caracter.upper() in palavra or
                 len(palavra.strip()) != 5):
