@@ -1,7 +1,7 @@
-from Base_de_Dados.json_utils import retorna_json, atualiza_json
+from Base_de_Dados.dados.json_utils import retorna_json, atualiza_json
 
 
-def acresenta_partida(resultado_partida : str) -> None:
+def acresenta_partida(resultado_partida: str) -> None:
     dados = retorna_json()
 
     if resultado_partida.upper() == "P":

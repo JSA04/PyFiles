@@ -3,15 +3,9 @@ class Pandas_Base:
     import pandas as pd
 
     def __init__(self):
-        from Base_de_Dados.json_utils import retorna_json, escreve_json
-
-        jsonDB = retorna_json()
-
         self.tabela_palavras = self.pd.DataFrame()
         self.lastid = 0
 
-        jsonDB["Base"] = "Pandas"
-        escreve_json(jsonDB)
 
     def adiciona_palavras(self) -> None:
 
@@ -19,13 +13,13 @@ class Pandas_Base:
 
         palavras = retorna_palavras()
 
-        new_lastid : int = self.lastid + len(palavras)
+        new_lastid: int = self.lastid + len(palavras)
 
         tabela = self.pd.DataFrame(
             {"id": range(self.lastid, new_lastid), "palavra": palavras}
         )
 
-        self.lastid : int = new_lastid
+        self.lastid: int = new_lastid
 
         self.tabela_palavras = \
             self.pd.concat([self.tabela_palavras, tabela])
@@ -33,7 +27,7 @@ class Pandas_Base:
         self.tabela_palavras.set_index("id", inplace=True)
 
     def retorna_palavra_por_id(self, id) -> str:
-        palavra : str = self.tabela_palavras.loc[
+        palavra: str = self.tabela_palavras.loc[
             id, "palavra"
         ]
 

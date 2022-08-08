@@ -1,6 +1,6 @@
 class Mysql_Base:
     def __init__(self):
-        from ._conecta_db import retorna_base
+        from Base_de_Dados.MySQL.Conecta_MySQL.conecta_mysql import retorna_base
         self.db = retorna_base()
 
     def cria_tabela_palavras(self) -> None:
@@ -52,8 +52,8 @@ class Mysql_Base:
         cursor = self.db.cursor()
 
         cursor.execute("use termo")
-        cursor.execute("SELECT palavra from palavras where palavra = %s", (palavra_a_conferir,))
-
+        cursor.execute("SELECT palavra from palavras where palavra = %s",
+                       (palavra_a_conferir,))
 
         existe = False
 
@@ -74,8 +74,6 @@ class Mysql_Base:
         for count in cursor:
             self.fecha_db()
             return count[0]
-
-
 
     def reconecta_db(self) -> None:
         self.db.reconnect()
