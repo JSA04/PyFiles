@@ -32,7 +32,7 @@ def executa_acao(cls: Termo) -> Union[str, None]:
         elif acao == "4":
             return cls._leave()
 
-        if acao.isnumeric():
+        elif acao.isnumeric():
             print("\033[31mDigite um desses números!\033[m")
             continue
         else:

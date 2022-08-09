@@ -18,5 +18,5 @@ def altera_estatisticas(resultado_partida: str) -> None:
 
 
 def retorna_streak():
-    dados = retorna_streak()
+    dados = retorna_json()
     return dados["Streak"]
