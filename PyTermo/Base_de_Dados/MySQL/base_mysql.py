@@ -7,7 +7,6 @@ from mysql.connector.errors import ProgrammingError
 
 def database_mysql_termo() -> Union[Mysql_Base, None]:
 
-    dados = retorna_json()
     while True:
         database = Mysql_Base()
 
@@ -28,6 +27,4 @@ def database_mysql_termo() -> Union[Mysql_Base, None]:
             except ProgrammingError:
                 print("\n\033[31mEste usuário não possui acesso ao Banco de Dados.\033[m")
 
-        dados["Base"] = "MySQL"
-        atualiza_json(dados)
         return database

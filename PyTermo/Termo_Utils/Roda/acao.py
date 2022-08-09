@@ -5,12 +5,12 @@ from Termo_Utils.Termo import Termo
 
 def executa_acao(cls: Termo) -> Union[str, None]:
 
-    print("1 - Começar")
-    print("2 - Ver Meus Status")
-    print("3 - Configurações Da Base De Dados")
-    print("4 - Sair\n")
-
     while True:
+
+        print("1 - Começar")
+        print("2 - Ver Meus Status")
+        print("3 - Configurações Da Base De Dados")
+        print("4 - Sair\n")
 
         acao = input("O Que Quer Fazer? ").strip()
 

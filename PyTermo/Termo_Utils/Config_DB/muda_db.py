@@ -31,10 +31,8 @@ def _pede_para_mudar_db(cls: Termo):
             system("cls")
 
             cls.base_de_dados = retorna_base_de_dados()
-            break
 
-
-        if resp == "1":
+        elif resp == "1":
 
             if jsonDB["Base"] == "MySQL":
 
@@ -42,18 +40,13 @@ def _pede_para_mudar_db(cls: Termo):
                     jsonDB["MySQL_PW"] = ""
 
                 cls.base_de_dados = database_pandas_termo()
-
             else:
 
                 cls.base_de_dados = database_mysql_termo()
 
-            atualiza_json(jsonDB)
-            break
-
         elif resp == "2" and jsonDB["Base"] == "MySQL":
             jsonDB["MySQL_User"] = ""
             cls.base_de_dados = database_mysql_termo()
-            break
 
         elif (resp == "2" and jsonDB["Base"] == "Pandas") or \
              (resp == "3" and jsonDB["Base"] == "MySQL"):
@@ -63,10 +56,11 @@ def _pede_para_mudar_db(cls: Termo):
                 jsonDB["MySQL_PW"] = ""
 
             atualiza_json(jsonDB)
-            break
 
         elif resp in ["2", "3", "4"]:
             break
 
         else:
             print("\033[31mDigite Uma Resposta Válida.\033[m")
+            continue
+        break

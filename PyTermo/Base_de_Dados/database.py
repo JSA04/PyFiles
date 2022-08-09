@@ -22,6 +22,8 @@ def _pede_base() -> Union[database_mysql_termo,
                           database_pandas_termo,
                           None]:
     while True:
+        system("cls")
+
         print("Qual A Base De Dados Que Deseja Usar?\n")
 
         print("1 - MySQL")

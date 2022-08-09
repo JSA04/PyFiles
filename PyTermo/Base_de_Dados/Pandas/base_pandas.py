@@ -7,10 +7,10 @@ def database_pandas_termo() -> Pandas_Base():
 
     database = Pandas_Base()
 
-    database.adiciona_palavras()
+    dados = retorna_json()
+    dados["Base"] = "Pandas"
+    atualiza_json(dados)
 
-    json = retorna_json()
-    json["Base"] = "Pandas"
-    atualiza_json(json)
+    database.adiciona_palavras()
 
     return database

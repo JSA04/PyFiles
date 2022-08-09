@@ -33,8 +33,6 @@ def retorna_base():
             dados["MySQL_User"] = novos_dados["user"]
             dados["MySQL_PW"] = novos_dados["passwd"]
 
-            atualiza_json(dados)
-
         else:
             dados["Base"] = "MySQL"
             atualiza_json(dados)

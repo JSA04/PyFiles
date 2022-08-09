@@ -5,5 +5,9 @@ class Tentativa:
 
     def imprime_tentativa(self) -> None:
         for i in range(0, 5):
-            print(f"{self.verificacao[i]}{self.tentativa[i]}", end=" ")
-        print("\033[m")
+            print(f"{self.verificacao[i]}{self.tentativa[i]}\033[m", end="")
+
+        print()
+
+    def __str__(self):
+        return self.tentativa
