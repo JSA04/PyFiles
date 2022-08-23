@@ -202,11 +202,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main (1)" />
-      <item itemvalue="Python.muda_db" />
-      <item itemvalue="Python.json_utils" />
       <item itemvalue="Python.config_db" />
+      <item itemvalue="Python.json_utils" />
+      <item itemvalue="Python.main (1)" />
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.muda_db" />
     </list>
     <recent_temporary>
       <list>
