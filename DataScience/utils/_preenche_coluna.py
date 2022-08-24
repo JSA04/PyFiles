@@ -1,7 +1,4 @@
-from utils_imports import rI, pd
-
-
-def preenche_coluna(cls, coluna_a_preencher, valores_a_usar): 
+def preenche_coluna(cls, coluna_a_preencher, valores_a_usar):
     try:
         cls.df[coluna_a_preencher]
 
@@ -14,8 +11,8 @@ def preenche_coluna(cls, coluna_a_preencher, valores_a_usar):
         else:
             print("Não foi possivel preencher a coluna")
 
-            if len(valores_a_usar) > cls.qtd:
-                print(f"{len(valores_a_usar)} > {cls.qtd}")
+            if len(valores_a_usar) > cls.get_qtd:
+                print(f"{len(valores_a_usar)} > {cls.get_qtd}")
                 
-            elif len(valores_a_usar) < cls.qtd:
-                print(f"{len(valores_a_usar)} < {cls.qtd}")
+            elif len(valores_a_usar) < cls.get_qtd:
+                print(f"{len(valores_a_usar)} < {cls.get_qtd}")
