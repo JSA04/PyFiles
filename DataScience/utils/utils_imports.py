@@ -1,7 +1,6 @@
-import pandas as pd
-from random import randint as rI
-
-from utils._preenche_coluna import preenche_coluna
-from utils._preenche_comodos import preenche_comodos
-from utils._preenche_tipos import preenche_tipos
-from utils._preenche_bairros import preenche_bairros
+if __name__ != "__main__":
+    from utils.preenche.preenche_area import preenche_area
+    from utils.preenche.preenche_coluna import preenche_coluna
+    from utils.preenche.preenche_comodos import preenche_comodos
+    from utils.preenche.preenche_bairros import preenche_bairros
+    from utils.preenche.preenche_tipos import preenche_tipos
