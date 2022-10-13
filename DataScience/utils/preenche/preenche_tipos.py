@@ -1,9 +1,9 @@
 if __name__ != "__main__":
-    from utils.DF_utils import DataFrame_Aluguel_Utils
+    from utils.DF_utils import DataFrame_Aluguel_Utils as Dau
     from utils.consts import TIPOS_COM_PROBABILIDADE, retorna_aleatorio
 
 
-    def preenche_tipos(cls: DataFrame_Aluguel_Utils):
+    def preenche_tipos(cls: Dau):
 
         vals = []
 

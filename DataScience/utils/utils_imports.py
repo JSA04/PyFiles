@@ -4,3 +4,5 @@ if __name__ != "__main__":
     from utils.preenche.preenche_comodos import preenche_comodos
     from utils.preenche.preenche_bairros import preenche_bairros
     from utils.preenche.preenche_tipos import preenche_tipos
+    from utils.preenche.preenche_valor import preenche_valor
+    from utils.preenche.preenche_impostos import preenche_impostos

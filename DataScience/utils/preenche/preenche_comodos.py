@@ -1,6 +1,6 @@
 if __name__ != "__main__":
     from random import randint as ri
-    from utils.DF_utils import DataFrame_Aluguel_Utils
+    from utils.DF_utils import DataFrame_Aluguel_Utils as Dau
     from utils.consts import TIPO_COMERCIAL_GRANDE, \
         TIPO_COMERCIAL_PEQUENA, \
         TIPO_RESIDENCIAL_GRANDE, \
@@ -10,7 +10,7 @@ if __name__ != "__main__":
         CHANCE_QTD_VAGAS_CASA
 
 
-    def preenche_comodos(cls: DataFrame_Aluguel_Utils):
+    def preenche_comodos(cls: Dau):
         vals = {"Q": [], "S": [], "V": []}
 
         for i in range(0, cls.get_qtd):

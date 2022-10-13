@@ -13,6 +13,7 @@ if __name__ != "__main__":
             self._2_bairros()
             self._3_comodos()
             self._4_area()
+            self._5_valor()
 
         def preenche_colunas(self, colunas_a_preencher: str | list,
                              valores_a_usar: list = "Other"):
@@ -41,6 +42,16 @@ if __name__ != "__main__":
 
             preenche_area(self)
 
+        def _5_valor(self):
+            from utils.utils_imports import preenche_valor
+
+            preenche_valor(self)
+
+        def _6_impostos(self):
+            from utils.utils_imports import preenche_impostos
+
+            preenche_impostos(self)
+
         @staticmethod
         def escolhe_quantidade_de_items() -> int:
             return int(ri(1**4, 2**4))
@@ -53,7 +64,7 @@ if __name__ != "__main__":
         def get_df(self):
             return self.df
 
-        def get_value(self, coluna: str | int, indice: int) -> bool | pd.Series:
+        def get_value(self, coluna: str | int, indice: int) -> pd.Series:
             try:
                 return self.df.loc[indice][coluna]
             except KeyError:
