@@ -7,7 +7,7 @@ class Termo:
 
         #  Guarda objeto da Base de Dados para outros módulos
         # executar queries e afins.
-        self.base_de_dados = Base
+        self.base_de_dados = Base()
 
         self.sair = False
 
@@ -56,3 +56,6 @@ class Termo:
         self.rodada = 0
         self.tentativa_atual = ""
         self.palavra_certa_atual = ""
+
+
+Termo().roda()

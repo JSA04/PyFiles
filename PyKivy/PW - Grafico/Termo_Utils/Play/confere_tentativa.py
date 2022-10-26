@@ -1,5 +1,5 @@
-from ._Tentativa import Tentativa
-from ._Igualador import Igualador
+from Termo_Utils.Play._Tentativa import Tentativa
+from Termo_Utils.Play._Igualador import Igualador
 from Termo_Utils.Termo import Termo
 
 

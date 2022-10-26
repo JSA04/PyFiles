@@ -1,6 +1,6 @@
-from .confere_tentativa import Conferidor_de_Tentativa
-from .escolhe_palavra import escolhe_palavra
-from .trata_input import trata_input
+from Termo_Utils.Play.confere_tentativa import Conferidor_de_Tentativa
+from Termo_Utils.Play.escolhe_palavra import escolhe_palavra
+from Termo_Utils.Play.trata_input import trata_input
 from Termo_Utils.utils import altera_estatisticas, retorna_streak
 from Termo_Utils.Termo import Termo
 

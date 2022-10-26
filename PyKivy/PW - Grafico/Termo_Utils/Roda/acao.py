@@ -9,7 +9,6 @@ def executa_acao(cls: Termo) -> Union[str, None]:
 
         print("1 - Começar")
         print("2 - Ver Meus Status")
-        print("3 - Configurações Da Base De Dados")
         print("3 - Sair\n")
 
         acao = input("O Que Quer Fazer? ").strip()
