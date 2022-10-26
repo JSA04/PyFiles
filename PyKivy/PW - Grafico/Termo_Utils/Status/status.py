@@ -2,7 +2,7 @@ from Termo_Utils.utils import retorna_json
 from Termo_Utils.Termo import Termo
 
 
-def status(cls : Termo):
+def status(cls: Termo):
     cls._limpa_terminal()
 
     dados = retorna_json()  

@@ -14,7 +14,7 @@ class Termo:
         self._limpa_terminal()
 
     def roda(self) -> None:
-        from Termo_Utils.utils import roda, retorna_json
+        from Termo_Utils.utils import roda
         
         roda(self)
 
@@ -27,15 +27,6 @@ class Termo:
         from Termo_Utils.utils import status
 
         status(self)
-
-    def muda_configuracao_DB(self) -> None:
-        from Termo_Utils.utils import mostra_e_pede_para_mudar_DB
-
-        self._limpa_terminal()
-
-        mostra_e_pede_para_mudar_DB(self)
-
-        self._limpa_terminal()
 
     def _leave(self) -> None:
         self._limpa_terminal()
