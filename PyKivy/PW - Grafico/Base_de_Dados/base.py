@@ -1,4 +1,4 @@
-class Pandas_Base:
+class Base:
 
     import pandas as pd
 

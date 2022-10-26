@@ -1,20 +1,13 @@
-from typing import Union
-
-
 class Termo:
     def __init__(self):
-        from Termo_Utils.utils import retorna_base_de_dados
-        from Base_de_Dados.database import database_mysql_termo, \
-            database_pandas_termo
+        from Termo_Utils.utils import Base
 
         # A função reseta dados, inicialmente cria alguns dados do jogo atual.
         self._reseta_dados()
 
-        #  Guarda objeto da Base de Dados para efetuar para outros módulos
-        # executar querys e afins.
-        self.base_de_dados: Union[database_mysql_termo,
-                                  database_pandas_termo] = \
-            retorna_base_de_dados()
+        #  Guarda objeto da Base de Dados para outros módulos
+        # executar queries e afins.
+        self.base_de_dados = Base
 
         self.sair = False
 
@@ -24,10 +17,6 @@ class Termo:
         from Termo_Utils.utils import roda, retorna_json
         
         roda(self)
-
-        base = retorna_json()["Base"]
-        if base == "MySQL":
-            self.base_de_dados.db.close()
 
     def _play(self):
         from Termo_Utils.utils import play
