@@ -13,7 +13,7 @@ def verifica(palavra: str) -> str:
 
 
 def retorna_palavras() -> list:
-    with open(r"./Base_de_Dados/dados/palavras.txt", mode="r",
+    with open(r"./Base_de_Dados/dados/palavras.csv", mode="r",
               encoding="UTF-8") as arq_palavras:
 
         lista_de_palavras: list = arq_palavras.read().split(";")

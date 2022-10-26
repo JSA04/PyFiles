@@ -3,27 +3,8 @@ class Base:
     import pandas as pd
 
     def __init__(self):
-        self.tabela_palavras = self.pd.DataFrame()
+        self.tabela_palavras = self.pd.read_
         self.lastid = 0
-
-    def adiciona_palavras(self) -> None:
-
-        from Base_de_Dados.dados.palavras_dao import retorna_palavras
-
-        palavras = retorna_palavras()
-
-        new_lastid: int = self.lastid + len(palavras)
-
-        tabela = self.pd.DataFrame(
-            {"id": range(self.lastid, new_lastid), "palavra": palavras}
-        )
-
-        self.lastid: int = new_lastid
-
-        self.tabela_palavras = \
-            self.pd.concat([self.tabela_palavras, tabela])
-
-        self.tabela_palavras.set_index("id", inplace=True)
 
     def retorna_palavra_por_id(self, id) -> str:
         palavra: str = self.tabela_palavras.loc[
@@ -44,5 +25,5 @@ class Base:
 b = Base()
 b.adiciona_palavras()
 palavra = b.retorna_palavra_por_id(2)
-print(b.tabela_palavras)
+print(b.tabela_palavras())
 print("palavra " + palavra)
