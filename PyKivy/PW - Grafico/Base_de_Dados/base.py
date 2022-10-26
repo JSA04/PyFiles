@@ -6,7 +6,6 @@ class Base:
         self.tabela_palavras = self.pd.DataFrame()
         self.lastid = 0
 
-
     def adiciona_palavras(self) -> None:
 
         from Base_de_Dados.dados.palavras_dao import retorna_palavras
@@ -40,3 +39,10 @@ class Base:
 
     def qtd_linhas(self) -> int:
         return self.tabela_palavras.shape[0]
+
+
+b = Base()
+b.adiciona_palavras()
+palavra = b.retorna_palavra_por_id(2)
+print(b.tabela_palavras)
+print("palavra " + palavra)

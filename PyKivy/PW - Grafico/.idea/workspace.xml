@@ -52,20 +52,17 @@
       <recent name="C:\Users\f72823\Documentos\PyFiles\PyTermo\Termo_Utils\Rodar" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main (1)">
-    <configuration name="config_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.base">
+    <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Termo_Utils" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Base_de_Dados" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\f72823\Documentos\PyFiles\PyTermo\Termo_Utils\Config_DB\config_db.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Base_de_Dados/base.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -201,7 +198,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.config_db" />
+      <item itemvalue="Python.base" />
       <item itemvalue="Python.json_utils" />
       <item itemvalue="Python.main (1)" />
       <item itemvalue="Python.main" />
@@ -209,11 +206,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.base" />
         <item itemvalue="Python.main (1)" />
         <item itemvalue="Python.muda_db" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.json_utils" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>

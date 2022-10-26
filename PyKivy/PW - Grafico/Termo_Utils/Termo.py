@@ -56,6 +56,3 @@ class Termo:
         self.rodada = 0
         self.tentativa_atual = ""
         self.palavra_certa_atual = ""
-
-
-Termo().roda()
