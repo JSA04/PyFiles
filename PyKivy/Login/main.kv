@@ -1,0 +1,41 @@
+<Manager>:
+    LoginScreen:
+        name:"login"
+
+<LoginScreen>:
+
+    BoxLayout:
+        orientation:"vertical"
+        padding: 50
+        spacing: 50
+        GridLayout:
+            rows:2
+            cols:2
+
+            Label:
+                text: "Usuario:"
+
+            TextInput:
+                id: username
+                multiline:False
+
+            Label:
+                text: "Senha:"    
+
+            TextInput:
+                id: passwd
+                multiline:False
+                password:True
+                on_text_validate: root.confere_usuario()
+
+        Button:
+            id:submit
+            text:"Submit"
+            size_hint_y:None
+            on_release: root.confere_usuario()
+        Label:
+            id:login_log
+            text: ""
+            size_hint_y:None
+            height:10
+            color: 1,0,0,1
